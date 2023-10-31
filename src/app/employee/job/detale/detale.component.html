@@ -1,0 +1,118 @@
+
+
+<div class="container mt-5">
+    <div class="card border p-5 bg-white shadow-sm rounded">
+        <!-- Job details from form (you'd normally bind these values from your component.ts) -->
+        <h3 class="text-center mb-4">
+            <i class="fas fa-briefcase icon-style"></i>
+            {{jobTitle}}
+        </h3>
+        <p class="mb-3">
+            <i class="fas fa-building icon-style"></i>
+            <strong>Company:</strong> {{companyName}}
+        </p>
+        <p class="mb-3">
+            <i class="fas fa-info-circle icon-style"></i>
+            <strong>Description:</strong> {{jobDescription}}
+        </p>
+        <p class="mb-3">
+            <i class="fas fa-map-marker-alt icon-style"></i>
+            <strong>Location:</strong> {{jobLocation}}
+        </p>
+        <p class="mb-3">
+            <i class="fas fa-dollar-sign icon-style"></i>
+            <strong>Salary:</strong> {{salary}}
+        </p>
+
+        <button class="btn btn-primary" (click)="openApplicationForm()">Apply</button>
+    </div>
+</div>
+
+<!-- The application form (this will be hidden by default and shown when Apply is clicked) -->
+<div *ngIf="showApplicationForm" class="container mt-5">
+    <div class="card shadow-lg p-5 bg-white rounded">
+        <h3 class="text-center mb-4">Apply for {{jobTitle}}</h3>
+        <form [formGroup]="applicationForm" (ngSubmit)="onApplicationSubmit()">
+
+            <!-- Name -->
+            <div class="form-group">
+                <label for="applicantName"><i class="fas fa-user mr-2"></i>Name:</label>
+                <input type="text" id="applicantName" class="form-control" formControlName="applicantName">
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label for="phoneNumber"><i class="fas fa-phone-alt mr-2"></i>Phone Number:</label>
+                <input type="tel" id="phoneNumber" class="form-control" formControlName="phoneNumber">
+            </div>
+
+            <div class="form-group">
+                <label for="resume">Upload File:</label>
+                <input type="file" id="resume" class="form-control" formControlName="resume"
+                    (change)="onFileChange($event)">
+            </div>
+
+            <!-- Image Preview -->
+            <div *ngIf="isImage && preview" class="preview-container mt-3">
+                <img [src]="preview" alt="Image Preview" class="img-thumbnail">
+                <button class="btn btn-danger btn-sm mt-2" (click)="deleteFile()">Delete</button>
+            </div>
+
+            <!-- PDF Preview -->
+            <div *ngIf="isPDF && preview" class="preview-container mt-3">
+                <object [attr.data]="preview" type="application/pdf" width="300" height="200">
+
+                    PDF cannot be displayed.
+                </object>
+                <button class="btn btn-danger btn-sm mt-2" (click)="deleteFile()">Delete</button>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block mt-3">Submit Application</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+<div *ngIf="jobDetails" class="container mt-5">
+    <div class="card border p-5 bg-white shadow-sm rounded">
+        <h3 class="text-center mb-4 content-padding"><i class="fa fa-briefcase icon-padding"></i>{{ jobDetails.jobTitle }}</h3>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="item-spacing">
+                    <strong class="content-padding"><i class="fa fa-building-o icon-padding"></i>Company Name:</strong>
+                    <p class="ml-4">{{ jobDetails.companyName }}</p>
+                </div>
+
+                <div class="item-spacing">
+                    <strong class="content-padding"><i class="fa fa-info-circle icon-padding"></i>Company Description:</strong>
+                    <p class="ml-4">{{ jobDetails.companyDescription }}</p>
+                </div>
+
+                <div class="item-spacing">
+                    <strong class="content-padding"><i class="fa fa-map-marker icon-padding"></i>Job Location:</strong>
+                    <p class="ml-4">{{ jobDetails.jobLocation }}</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="item-spacing">
+                    <strong class="content-padding"><i class="fa fa-address-card-o icon-padding"></i>Company Address:</strong>
+                    <p class="ml-4">{{ jobDetails.address }}</p>
+                </div>
+
+                <div class="item-spacing">
+                    <strong class="content-padding"><i class="fa fa-tasks icon-padding"></i>Job Description:</strong>
+                    <p class="ml-4">{{ jobDetails.jobDescription }}</p>
+                </div>
+
+                <div class="item-spacing">
+                    <strong class="content-padding"><i class="fa fa-dollar icon-padding"></i>Salary:</strong>
+                    <p class="ml-4">{{ jobDetails.salary }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

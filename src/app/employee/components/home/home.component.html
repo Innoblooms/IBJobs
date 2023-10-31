@@ -1,0 +1,166 @@
+<div class="categories-container mt-4  mb-lg-0" style="background-image: url(assets/bg333.jpg);">
+  <div class="col-lg-12" style="text-align: center;">
+    <h1>Find your dream job now</h1>
+    <h4>5 lakh+ jobs for you to explore</h4>
+
+    <!-- <div class="search-container">
+      <form [formGroup]="searchForm" class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Choose a technology</mat-label>
+          <input type="text" placeholder="Pick one" aria-label="Technology" matInput [formControl]="myControlTechnology"
+            [matAutocomplete]="autoTechnology" />
+          <mat-autocomplete #autoTechnology="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+      <form [formGroup]="searchForm" class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter The Location</mat-label>
+          <input type="text" placeholder="Enter Location" aria-label="Location" matInput
+            [formControl]="myControlLocation" [matAutocomplete]="autoLocation" />
+          <mat-autocomplete #autoLocation="matAutocomplete">
+            <mat-option *ngFor="let state of filteredOptionss | async" [value]="state">
+              {{ state }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+      <select class="select-experience" [(ngModel)]="selectedExperience">
+        <option value="" disabled selected>Select Experience</option>
+        <option *ngFor="let exp of experience" [value]="exp">{{exp}}</option>
+      </select>
+      <button class="search-button" (click)="onSearchh()">Search</button>
+
+    </div> -->
+    <div class="search-container">
+      <form [formGroup]="searchForm" class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Choose a technology</mat-label>
+          <input
+            type="text"
+            placeholder="Pick one"
+            aria-label="Technology"
+            matInput
+            formControlName="technology"
+            [matAutocomplete]="autoTechnology"
+          />
+          <mat-autocomplete #autoTechnology="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+      <form [formGroup]="searchForm" class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter The Location</mat-label>
+          <input
+            type="text"
+            placeholder="Enter Location"
+            aria-label="Location"
+            matInput
+            formControlName="location"
+            [matAutocomplete]="autoLocation"
+          />
+          <mat-autocomplete #autoLocation="matAutocomplete">
+            <mat-option *ngFor="let state of filteredOptionss | async" [value]="state">
+              {{ state }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+      <select class="select-experience" formControlName="experience">
+        <option value="" disabled selected>Select Experience</option>
+        <option *ngFor="let exp of experience" [value]="exp">{{ exp }}</option>
+      </select>
+      <button class="search-button" (click)="onSearch()">Search</button>
+    </div>
+    
+  </div>
+
+
+  <div *ngFor="let category of categories" class="category-item" (click)="navigateToCategory(category.name)">
+    <i [ngClass]="category.iconClass"></i>
+    <span class="category-name">{{ category.name }}</span>
+    <i class="fa fa-arrow-right"></i>
+  </div>
+</div>
+
+
+
+<div class="categories-container mt-4 mb-lg-0">
+  <div class="col-lg-12" style="text-align: center;">
+    <h2>Employers of Choice</h2>
+  </div>
+  <div style="height: 45px; width: 120px;" *ngFor="let Choice of Companies" class="category-item"
+    (click)="navigateToCategory(Choice.name)"
+    [ngStyle]="{'background-image': 'url(' + getCategoryImageURL(Choice.name) + ')'}">
+
+  </div>
+
+</div>
+
+
+
+<div class="categories-container mt-4 mb-lg-0">
+  <div class="col-lg-12" style="text-align: center;">
+    <h2>Popular Searches</h2>
+  </div>
+  <div *ngFor="let Choice of Searches" class="category-item" (click)="navigateToCategory(Choice.name)">
+
+    <span class="category-name">{{ Choice.name }}</span>
+
+  </div>
+</div>
+
+
+
+
+
+
+<div class="card-container">
+  <!-- Left navigation button for the card carousel -->
+  <button class="carousel-control-prev" role="button" (click)="prevCards()">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </button>
+
+  <div class="flex-cards">
+    <!-- Iterate over the list of cards using Angular's *ngFor directive -->
+    <div *ngFor="let card of visibleCards" class="card">
+
+      <!-- Image at the top of the card -->
+      <img [src]="card.imgSrc" class="card-img-top" alt="Company Logo">
+
+      <div class="card-body">
+        <!-- Card title representing the job title or company name -->
+        <h5 class="card-title">{{ card.title }}</h5>
+
+        <!-- Brief description or details of the job -->
+        <p class="card-text">{{ card.text }}</p>
+
+        <!-- You can also add other elements like buttons or links -->
+        <a href="#" class="btn-apply">Apply Now</a>
+      </div>
+
+      <!-- A footer for the card can also be added for additional details, like job location -->
+      <!-- <div class="card-footer">
+        Location: {{ card.location }}
+      </div> -->
+    </div>
+  </div>
+
+  <!-- Right navigation button for the card carousel -->
+  <button class="carousel-control-next" role="button" (click)="nextCards()">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </button>
+
+</div>
+
+
+
+<app-footer></app-footer>

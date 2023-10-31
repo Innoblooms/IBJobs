@@ -1,0 +1,184 @@
+<div class="container1 mt-4" style="min-height: 100vh;">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 bg-light p-5 rounded-lg shadow-sm">
+            <h2 class="text-center mb-4 font-weight-bold">Employer Registration</h2>
+            <div class="text-right mb-4">
+                Already registered? <a routerLink="/employerslogin" class="text-primary">Login now</a>
+            </div>
+
+            <div class="d-flex align-items-center mb-4">
+                <span class="font-weight-bold" *ngIf="!isDetailsEntered">Your Details</span>
+                <span class="font-weight-bold" *ngIf="isDetailsEntered">Company Info</span>
+                <div class="flex-grow-1 mx-3">
+                    <div class="progress" style="height: 5px;">
+                        <div class="progress-bar" role="progressbar" [style.width]="profileCompletion + '%'"
+                            aria-valuenow="profileCompletion" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <span class="font-weight-bold" *ngIf="isDetailsEntered">Your Details</span>
+                <span class="font-weight-bold" *ngIf="!isDetailsEntered">Company Info</span>
+            </div>
+
+            <form [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+
+                <!-- Initial User Information Form -->
+                <div *ngIf="!isDetailsEntered">
+                    <div class="form-group">
+                        <label>Select User Type:</label>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="radio" formControlName="BehalfComp" value="company">
+                            <label class="form-check-label">On behalf of your company/business</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="BehalfComp" value="individual">
+                            <label class="form-check-label">As an individual/proprietor</label>
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <label for="userName">Your Name</label>
+                        <input type="text" id="userName" formControlName="EmprName" class="form-control"
+                            placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userEmail">Your Official Email</label>
+                        <input type="email" id="userEmail" formControlName="EmprEmail" class="form-control"
+                            placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="userPassword">Password</label>
+                        <div class="input-group">
+                            <input [type]="showPassword ? 'text' : 'password'" id="userPassword" formControlName="password" class="form-control" placeholder="Enter your password" (input)="onPasswordInput()">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" (click)="toggleShowPassword()">
+                                    <i class="fa" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Confirm Password Field - Shown When User Starts Typing Password -->
+                    <div class="form-group" *ngIf="showConfirmPassword">
+                        <label for="userConfirmPassword">Confirm Password</label>
+                        <input type="password" id="userConfirmPassword" formControlName="ConfirmPassword" class="form-control" placeholder="Re-enter your password" (input)="checkPasswords()">
+                        <div *ngIf="passwordMismatch" class="text-danger">
+                            Passwords do not match!
+                        </div>
+                    </div>
+                    
+                    <!-- ... other HTML below -->
+                    
+
+                    <div class="form-group">
+                        <label for="userPhone">Your Mobile Number</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" id="userPhone" formControlName="EmprMobile" class="form-control"
+                                placeholder="Enter your phone number">
+                        </div>
+                    </div>
+
+
+                    <button type="button" 
+                    class="btn btn-primary btn-block mt-3" 
+                    [disabled]="!hasValue('BehalfComp') || 
+                    !hasValue('EmprName') || 
+                    !hasValue('EmprEmail') || 
+                    !hasValue('EmprMobile') || 
+                    !passwordsValid()"
+        
+                    (click)="onContinue()">Continue</button>
+
+                </div>
+
+                <!-- Detailed Registration Form -->
+                <div *ngIf="isDetailsEntered">
+                    <div class="form-group">
+                        <label>My company is here:</label>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" 
+                                   type="radio" 
+                                   formControlName="OwnHiring" 
+                                   value="company" 
+                                   (change)="setRecruitCons()">
+                            <label class="form-check-label">to fulfill own hiring needs</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" 
+                                   type="radio" 
+                                   formControlName="OwnHiring" 
+                                   value="individual" 
+                                   (change)="setOwnHiring()">
+                            <label class="form-check-label">as a recruitment consultant</label>
+                        </div>
+                    </div>
+
+                
+                    <div class="form-group">
+                        <label>Company Name (as per KYC documents)</label>
+                        <input type="text" formControlName="CompanyName" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Designation</label>
+                        <input type="text" formControlName="Designation" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Company Type</label>
+                        <select formControlName="CompanyType" class="form-control">
+                            <option value="private">Private Ltd.</option>
+                            <option value="public">Public Ltd.</option>
+                            <option value="ngo">NGO</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pincode</label>
+                        <input type="number" formControlName="Pincode" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Street Address</label>
+                        <input type="text" formControlName="Address" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" formControlName="City" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>State</label>
+                        <input type="text" formControlName="State" class="form-control">
+                    </div>
+
+                    <!-- Agreements -->
+
+                    <div class="form-group mt-3">
+                        <div class="form-check">
+                            <input class="form-check-input" id="updatesConsent" type="checkbox"
+                                formControlName="Updates" checked>
+
+                            <label class="form-check-label" for="updatesConsent">I agree to receive updates by SMS,
+                                email, and WhatsApp.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" id="termsConsent" type="checkbox"
+                                formControlName="TermAndCon" checked>
+
+                            <label class="form-check-label" for="termsConsent">I agree to Terms & Conditions and Privacy
+                                Policy.</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-block mt-3">Create Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

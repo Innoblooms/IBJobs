@@ -1,0 +1,90 @@
+<div class="container1 d-flex flex-column align-items-stretch justify-content-center">
+    <!-- Main Content -->
+    <div *ngIf="!showForgotPassword">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h1 class="card-title text-center mb-4">Login Employer</h1>
+                        <!-- Toggle Tabs -->
+                        <div class="d-flex justify-content-between mb-4">
+                            <span><strong>Sales Enquiry</strong></span>
+                            <span><strong>Login/Register</strong></span>
+                        </div>
+
+                        <!-- Login Form -->
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                            <div class="mb-4">
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Enter email"
+                                        formControlName="EmprEmail">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control" placeholder="Enter password"
+                                        formControlName="password">
+                                </div>
+                                <div class="mb-3">
+                                    <button class="btn btn-primary btn-block" type="submit"
+                                        [disabled]="!loginForm.valid">Login</button>
+                                </div>
+
+                                <div class="text-center mb-3">
+                                    <a (click)="toggleForgotPasswordForm()">Forgot password?</a>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Keep your account safe. <a href="#">Learn How</a></span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Have a Query? <a href="#">Contact Us</a></span>
+                                    <a href="#" class="text-danger">Fraud Alert!</a>
+                                </div>
+                            </div>
+
+                            <!-- New Client -->
+                            <div class="text-center mb-3">
+                                <hr>
+                                <p class="mb-2">Are you a new client?</p>
+                                <button class="btn btn-success" routerLink="/employerssignip">Register Now</button>
+                            </div>
+                            <div class="text-center mb-3">
+                                <a (click)="toggleForgotPasswordForm()">Forgot password?</a>
+                            </div>
+
+                        </form>
+
+                        <!-- ... other parts remain unchanged ... -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <!-- <div *ngIf="showForgotPassword">
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <form [formGroup]="forgotPasswordForm" (ngSubmit)="submitForgotPassword()">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Enter Username/Email ID"
+                                    formControlName="emailOrUsername">
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-primary btn-block" type="submit"
+                                    [disabled]="!forgotPasswordForm.valid">SUBMIT</button>
+                            </div>
+                        </form>
+                        <div class="text-center mb-3">
+                            <a (click)="toggleForgotPasswordForm()">Go back to Employer's Login page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

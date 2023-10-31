@@ -1,0 +1,313 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ECECEC;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 30%;
+    background-color: #075E54;
+    padding: 10px;
+    overflow-y: scroll;
+    border-right: 1px solid #333;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-actions i {
+    margin-left: auto;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Add this to your CSS file or inside a <style> tag */
+.search {
+    margin-top: 5px;
+    background-color: #DCF8C6; /* WhatsApp green color */
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.form-control {
+    background-color: transparent;
+    border: none;
+    border-radius: 25px;
+    box-shadow: none;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 10px;
+}
+
+.contact img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.contact span {
+    font-size: 16px;
+    flex-grow: 1; /* Ensures that the name takes up maximum available width */
+}
+
+.contact-actions {
+    display: flex;
+    align-items: center;
+}
+
+.unseen-notification {
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 15px; 
+    display: flex;
+    align-items: center;
+}
+
+.contact-actions i {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.chat-window {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #075E54;
+    padding: 10px 20px;
+    border-bottom: 1px solid #333;
+}
+
+.chat-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.chat-header > div span {
+    font-size: 22px;
+    color: white;
+}
+
+.messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.message-wrapper {
+    display: flex;
+   
+}
+
+.sent .message-wrapper {
+    justify-content: flex-end;
+}
+
+.message-box {
+    padding: 10px 20px;
+    border-radius: 20px;
+    max-width: 70%;
+    position: relative;
+}
+
+.sent .message-box {
+    background-color: #DCF8C6;
+}
+
+.received .message-box {
+    background-color: #ECECEC;
+}
+
+.message-content {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.message-timestamp {
+    font-size: 12px;
+    position: absolute;
+    bottom: -15px;
+    color: #AAA;
+}
+
+.sent .message-timestamp {
+    right: 10px;
+}
+
+.received .message-timestamp {
+    left: 10px;
+}
+
+.message-input {
+    padding: 10px;
+    border-top: 1px solid #C4C4C4;
+    display: flex;
+    align-items: center;
+}
+
+.message-input button {
+    border: none;
+    background: none;
+    color: #075E54;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.message-input input {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.no-contact-selected {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #aaa;
+    background-color: #fff;
+}
+/* ... (previous styles) ... */
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #075E54;
+    padding: 10px 20px;
+    border-bottom: 1px solid #333;
+    color: #ffffff; /* adding white color to text */
+}
+
+.chat-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.chat-header > div span {
+    font-size: 24px;  /* increased font size */
+    margin-right: auto;
+}
+
+.typing-status, .online-status {
+    font-size: 16px;  /* increased font size */
+    margin-left: 20px;
+}
+
+.chat-actions {
+    display: flex;
+    align-items: center;
+}
+
+.chat-actions i {
+    font-size: 20px;  /* increased icon size */
+    color: #ffffff;  /* white color for the icons */
+    margin-left: 25px;  /* spacing between icons */
+    cursor: pointer;
+}
+
+.profile-actions {
+    margin-left: auto; /* This will push the settings icon to the far right */
+}
+.name{
+    color: white !important;
+}
+/* ... (your existing styles) ... */
+
+.message-wrapper {
+    display: flex;
+    margin-bottom: 5px;
+    padding: 5px 20px; /* Padding added to give some space around the messages */
+}
+
+.received .message-wrapper {
+    justify-content: flex-start; /* received messages will align to the left */
+}
+
+.sent .message-box, .received .message-box {
+    width: calc(100% - 40px); /* Using 100% of the available width, reduced by padding */
+    border-radius: 8px; /* Rounding the corners */
+}
+
+.sent .message-box {
+    background-color: #DCF8C6;
+    border-top-right-radius: 0; /* Removing the top-right border radius for a WhatsApp feel */
+    margin-left: auto; /* Push the box to the right side */
+}
+
+.received .message-box {
+    background-color: #ECECEC;
+    border-top-left-radius: 0; /* Removing the top-left border radius for a WhatsApp feel */
+    margin-right: auto; /* Push the box to the left side */
+}
+
+.message-content {
+    font-size: 16px;
+    line-height: 1.4;
+    word-wrap: break-word; /* Ensuring long words don't break the layout */
+}

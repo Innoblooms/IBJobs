@@ -1,0 +1,59 @@
+.icon-padding {
+    margin-right: 8px; /* You can adjust the value to your preference */
+}
+
+.content-padding {
+    margin-bottom: 5px; /* Add a bottom margin for a gap between the title and the content */
+}
+
+.item-spacing {
+    margin-bottom: 60px; /* Add spacing between different items for better visual separation */
+}
+
+
+.content-padding {
+    padding-top: 45px;
+}
+
+.icon-style {
+    margin-right: 20px;  /* Increased margin to the right of the icon */
+    vertical-align: middle; /* Aligns the icon with the text */
+}
+
+.text-center {
+    margin-bottom: 30px; /* Provides spacing below the heading */
+}
+
+p {
+    padding: 10px 0; /* Adds padding to the top and bottom of each paragraph */
+    font-size: 1.1rem; /* Slightly larger font for readability */
+}
+
+.preview-container {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .img-thumbnail {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Increase space between label and its input */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;  /* Space beneath the label */
+}
+
+/* Add space between different form-group elements */
+.form-group {
+    margin-bottom: 20px;  /* Increase or decrease this as you see fit */
+}
+
+/* Style for the icon inside the label */
+label i {
+    margin-right: 8px;
+}

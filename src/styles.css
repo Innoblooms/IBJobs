@@ -1,0 +1,485 @@
+Resets
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* You can replace this with any preferred font */
+}
+
+.full-width-navbar {
+    width: 100%;
+    position: sticky !important;
+    top: 0;
+    z-index: 1000; /* Ensuring the navbar stays on top */
+ 
+}
+
+
+
+.navbar {
+    background-color: #f8f8f8; /* Light gray, you can change as required */
+    font-size: 16px !important;
+}
+
+.nav-link, .dropdown-item {
+    font-size: 1.1rem; /* Making navbar items a bit larger */
+    padding: 10px 15px; /* Adding more padding for a spacious look */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.nav-link:hover, .dropdown-item:hover {
+    background-color: #e7e7e7; /* Color change on hover */
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for dropdown */
+}
+
+.navbar-toggler-icon {
+    font-size: 1.2rem; /* Adjusting the size of the toggle icon */
+}
+
+.navbar-brand {
+    padding: 5px 0 ; /* Centering the brand text/icon */
+}
+/* Adjusting the FontAwesome icon sizes and spacing */
+
+/* General FontAwesome Icon Size and Margin Enhancement */
+.navbar-nav.ml-auto .nav-link i.fas {
+    font-size: 1.5rem ; /* Adjust this value for general size increase */
+    margin-right: 5px; /* Providing space if there's adjacent text */
+}
+
+/* Specific adjustments for individual icons, if necessary */
+
+/* Comment Icon (fa-comments) */
+.navbar-nav.ml-auto .nav-link i.fa-comments {
+    font-size: 1.5rem; /* Adjust this value for size */
+    margin: 0 10px;    /* Adjust for spacing: top-bottom, left-right */
+}
+
+/* Bell Notification Icon (fa-bell) */
+.navbar-nav.ml-auto .nav-link i.fa-bell {
+    font-size: 1.5rem; /* Adjust this value for size */
+    margin: 0 10px;    /* Adjust for spacing: top-bottom, left-right */
+}
+
+/* User Circle Icon (fa-user-circle) */
+.navbar-nav.ml-auto .nav-link i.fa-user-circle {
+    font-size: 3rem !important; /* Adjust this value for size */
+    margin-top: -10px;    /* Adjust for spacing: top-bottom, left-right */
+}
+
+/* Shopping Cart Icon (fa-shopping-cart) */
+.navbar-nav.ml-auto .nav-link i.fa-shopping-cart {
+    font-size: 1.4rem; /* Adjust this value for size */
+    margin-top: 3px !important; /* Adjust for spacing: top-bottom, left-right */
+}
+
+/* You can add more specific rules for other icons or elements as necessary */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+.dropdown-header {
+    font-size: 18px !important; 
+    margin-bottom: -0px !important;
+}
+.dropdown-item{
+    font-size: 16px !important;
+  
+    color: #615c5c !important;
+}
+.company-name i {
+    margin-right: 8px;  /* Adjust the spacing as needed */
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    border-color: #adb5bd; /* Darker shade for hover */
+}
+
+.icon-container {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f28b82; /* Soft red color for icons */
+}
+
+.job-title, .company-name, .job-meta {
+    margin-bottom: 15px;
+}
+
+.job-title {
+    font-size: 24px;
+    color: #343a40; /* Dark text */
+    margin-bottom: 15px;
+    margin-top: -10px; /* Adjusted for top alignment */
+    align-self: center; /* To center the title in the card */
+    flex: 0; /* So it doesn't grow or shrink */
+}
+
+
+.job-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 50px;
+    box-sizing: border-box;
+    justify-content: center; /* Cards will be centered */
+}
+
+.job-card {
+
+    background-color: #f8f9fa; /* Soft gray background */
+    padding: 20px; /* Adjusted padding */
+    border-radius: 15px;
+    border: 2px solid #e9ecef; /* Soft border */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px; /* Space between job cards */
+    width: 100%; /* Takes the full width of its parent container */
+    max-width: 750px; /* But won't go beyond 340px */
+    height: 250px; /* Adjusted height */
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.company-name {
+    font-size: 18px;
+    color: #6c757d; /* Medium gray text */
+}
+
+.job-meta {
+    font-size: 14px;
+    color: #868e96; /* Light gray text */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.job-meta i {
+    margin-right: 5px;
+}
+
+.job-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;  
+    bottom: 25px;
+    left: 25px;
+    right: 25px;
+}
+
+.apply-button {
+    padding: 10px 25px;
+    background-color: #11101000; /* Soft red */
+    color: #1a0e0e;
+    border-radius: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.apply-button:hover {
+    background-color: #ea6f77;
+    transform: scale(1.05);
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+   margin-left: auto;
+   margin-right: auto;
+   display: flex;
+   align-items: center; 
+   padding: 10px;
+   border: 3px solid gray;
+   border-radius: 50px;
+   margin-bottom: 10px;
+   max-width: 900px; 
+
+}
+
+.searchbox {
+    width: 100%;
+    padding: 10px 40px 10px 15px; /* 40px padding on the right to make space for the search icon */
+    border: 1px solid #dcdcdc;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+.search-field {
+    flex: 1;
+}
+
+
+.searchbox:focus {
+    border-color: #a5a5a5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.search-icon {
+    margin-left: 8px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #a5a5a5;
+    pointer-events: none; /* This ensures that the icon doesn't interfere with the input's click or focus events */
+}
+
+.custom-apply-btn {
+    background-color: #04888d; /* Bootstrap primary color */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    border-radius: 30px; /* Rounded edges */
+    padding: 10px 25px; /* Top/bottom padding of 10px, left/right padding of 25px */
+    font-weight: 500; /* Semi-bold text */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    cursor: pointer; /* Hand cursor on hover */
+}
+
+.custom-apply-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-3px); /* Slight upwards lift on hover */
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.12); /* Increased shadow on hover */
+}
+
+.custom-apply-btn:active {
+    transform: translateY(0); /* Reset position on active/click */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Reset shadow on active/click */
+}
+
+
+
+
+
+
+* {
+    box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
+}
+
+
+
+.search-input, .search-location, .select-experience {
+    padding: 10px 15px;
+    margin-right: 10px;
+    flex: 1; 
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    height: 45px; 
+    background-color: transparent;
+}
+
+.select-experience {
+    flex: 0.8; 
+    cursor: pointer;
+}
+
+.search-button {
+    background-color: #04888d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    height: 45px;
+    align-self: stretch;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* For small devices */
+@media (max-width: 900px) {
+    .filters {
+        display: none !important; /* Forces the filters to hide on small screens */
+    }
+
+    .jobs {
+        width: 100% !important; /* Forces the job cards to take the full width on small screens */
+    }
+    .search-container {
+        margin-top: -5px !important;
+        flex-direction: column;
+        align-items: stretch;
+        border: none;
+        padding: 5px; /* Reduced padding to ensure it fits within viewport */
+    }
+
+    .search-input, .search-location {
+        margin: 5px 0; /* Reduced margin */
+        width: 100%;
+        border-bottom: 2px solid gray;
+    }
+
+    .select-experience {
+        width: 100%;
+        margin: 5px 0; /* Reduced margin */
+    }
+
+    .search-button {
+        width: 100%;
+        margin: 5px 0; /* Reduced margin */
+        border-radius: 50px;
+        padding: 5px 10px; /* Reduced padding */
+    }
+}
+
+
+.container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    height: calc(100vh);
+    overflow: hidden;
+}
+
+
+.jobs {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    height: calc(100vh);  /* This is just an example, adjust as necessary */
+    overflow-y: auto;
+}
+
+.job-card {
+    background-color: #f8f9fa; /* Soft gray background */
+    padding: 20px; /* Adjusted padding */
+    border-radius: 15px;
+    border: 2px solid #e9ecef; /* Soft border */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px; /* Space between job cards */
+    width: 100%; /* Takes full width */
+    box-sizing: border-box;
+}
+
+
+.job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+.filter-card {
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filter-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    
+}
+
+
+.filters {
+    flex-direction: column;
+    gap: 20px;
+    width: 30%;
+    padding: 20px;
+    overflow-y: auto; /* Enables scrolling for filters */
+    height: 100%; /* Ensures the filters take full vertical space */
+    border-right: 1px solid #e0e0e0; /* Adds a border to visually separate the sections */
+    display: flex;
+   
+}
+
+
+
+input[type="search"] {
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="search"]:focus {
+    border-color: #04888d;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+}
+
+.checkbox-group label input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+mat-slider {
+    width: 200px;
+    color: #04888d;
+  }
+
+  /* In your CSS file */
+.mat-slider-thumb {
+    background-color: #04888d;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

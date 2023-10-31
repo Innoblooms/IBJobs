@@ -1,0 +1,220 @@
+/* General Styling */
+body {
+    background-color: #f4f4f4;
+}
+
+.container1 {
+    font-family: 'Arial', sans-serif;
+    max-width: 2000px;
+    margin-top: 10px;
+}
+
+.card, .work-status-card {
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+}
+
+.form-check-label, .form-check-input, .input-group-text {
+    cursor: pointer;
+}
+
+.input-group-text {
+    background-color: #f7f7f7;
+    border: 1px solid #ced4da;
+}
+
+hr {
+    border-top: 2px solid #eee;
+}
+
+/* Work Status Styling */
+.work-status-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.work-status-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+    border: 1px solid #a8a6a6;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.status-content {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.status-label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.status-image {
+    width: 50px;
+    height: 50px;
+}
+
+.work-status-card.selected {
+    border-color: #007BFF;
+}
+
+/* Responsive tweaks */
+@media (max-width: 968px) {
+    .container, .work-status-card {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .work-status-card {
+        flex-direction: column;  /* Stacks content and image vertically */
+        align-items: flex-start;  /* Aligns content to the start */
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .work-status-card {
+        border-radius: 5px;
+    }
+}
+/* Adjusting the Outside India checkbox alignment for 'fresher' */
+.outside-india-container {
+    display: flex;
+    justify-content: flex-end; /* This will push the checkbox and its label to the right */
+    align-items: center; /* Centers items vertically */
+    margin-top: 20px;
+}
+
+
+
+.outside-india-label {
+    margin-right: 5px;  /* Space before the checkbox */
+}
+.input-preview {
+    border-radius: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.input-preview-sm {
+    height: 28px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.custom-checkbox {
+    margin-right: 5px !important; /* Add margin to the right of the checkbox */
+    transform: scale(1.5); /* Increase the size of the checkbox */
+    vertical-align: middle;
+  
+}
+
+.whatsapp-label .fa-whatsapp {
+   
+    color: #25D366;   /* WhatsApp green color */
+   
+}
+.whatsapp-checkbox{
+    margin-right: 10px;
+
+}
+.upload-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.custom-file-upload {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    width: max-content;
+    background-color: #f9f9f9;
+}
+
+.file-btn {
+    background-color: #0073e6;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.file-text {
+    color: #666;
+}
+
+.form-control-file {
+    display: none;
+}
+
+.file-description {
+    margin-top: 10px;
+}
+.btn-google {
+    background-color: #fff;
+    color: #757575;
+    border: 1px solid #ccc;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.btn-google img {
+    margin-right: 8px; /* Adjust as needed */
+}
+
+.btn-google:hover {
+    background-color: #f7f7f7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-google:active {
+    background-color: #ebebeb;
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

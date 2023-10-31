@@ -1,0 +1,183 @@
+<div class="container1 mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="mb-4 text-center">Employee Register</h2>
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                        <!-- Full Name -->
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" formControlName="FullName">
+                        </div>
+
+                        <!-- Email ID -->
+                        <div class="form-group">
+                            <label>Email ID</label>
+                            <input type="email" class="form-control" formControlName="EmailD">
+                            <small>We'll send you relevant jobs in your mail</small>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" formControlName="Password">
+                        </div>
+
+                        <!-- Mobile Number -->
+                        <div class="form-group">
+                            <label>Mobile Number</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">+91</span>
+                                </div>
+                                <input type="tel" class="form-control" formControlName="MobileNumber">
+                            </div>
+                            <small>Recruiters will call you on this number</small>
+                        </div>
+
+                        <!-- Work Status Selection -->
+                        <div class="work-status-container">
+                            <!-- Experienced Card -->
+                            <div class="work-status-card"
+                                [class.selected]="registerForm.get('WorkStatus')?.value === 'experienced'"
+                                (click)="onCardClick('experienced')">
+                                <div class="status-content">
+                                    <span class="status-label">Experienced</span>
+                                    <p>I have work experience (excluding internships)</p>
+                                </div>
+                                <img src="assets/regex.svg" alt="Experienced">
+                            </div>
+
+                            <!-- Fresher Card -->
+                            <div class="work-status-card"
+                                [class.selected]="registerForm.get('WorkStatus')?.value === 'fresher'"
+                                (click)="onCardClick('fresher')">
+                                <div class="status-content">
+                                    <span class="status-label">Fresher</span>
+                                    <p>I am a student/ Haven't worked after graduation</p>
+                                </div>
+                                <img src="assets/regfresh.svg" alt="Fresher">
+                            </div>
+                        </div>
+
+                        <!-- Location Information -->
+                        <div *ngIf="registerForm.value.WorkStatus === 'fresher'">
+                            <div class="form-group" *ngIf="!selectedCity">
+                                <input class="form-check-input" type="checkbox" id="outsideIndia"
+                                    formControlName="OutsideIndia" (change)="onOutsideIndiaChecked()">
+                                <label class="outside-india-label" for="outsideIndia">Outside India</label>
+                            </div>
+
+                            <!-- Inside India - City Input -->
+                            <div class="form-group position-relative" *ngIf="!outsideIndia">
+                                <label for="city">Current city</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control"
+                                        [ngClass]="{'input-preview': selectedCity !== ''}" id="city"
+                                        formControlName="City" placeholder="Mention the city you live in"
+                                        [value]="selectedCity" (keyup)="onCityInput($event)"
+                                        [readonly]="selectedCity !== ''">
+                                    <div class="input-group-append" *ngIf="selectedCity">
+                                        <span class="input-group-text bg-danger text-white" (click)="clearCity()"><i
+                                                class="fa fa-times"></i></span>
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu w-100 position-absolute show"
+                                    *ngIf="filteredCities.length && selectedCity === ''">
+                                    <a class="dropdown-item" *ngFor="let city of filteredCities"
+                                        (click)="selectCity(city)">{{ city }}</a>
+                                </div>
+                            </div>
+
+                            <!-- Outside India - City and Country Input -->
+                            <div *ngIf="outsideIndia">
+                                <div class="form-group position-relative">
+                                    <label for="country">Current country</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control"
+                                            [ngClass]="{'input-preview': selectedCountry !== ''}" id="country"
+                                            formControlName="Country"
+                                            placeholder="Mention the country where you're staying"
+                                            [readonly]="selectedCountry !== ''" [value]="selectedCountry"
+                                            (keyup)="onCountryInput($event)">
+                                        <div class="input-group-append" *ngIf="selectedCountry">
+                                            <span class="input-group-text bg-danger text-white"
+                                                (click)="clearCountry()">
+                                                <i class="fa fa-times"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-menu w-100 position-absolute show"
+                                        *ngIf="filteredCountries.length && selectedCountry === ''">
+                                        <a class="dropdown-item" *ngFor="let country of filteredCountries"
+                                            (click)="selectCountry(country)">
+                                            {{ country }}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="form-group position-relative">
+                                    <label for="foreignCity">City in foreign country</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control"
+                                               [ngClass]="{'input-preview': selectedForeignCity !== ''}" id="foreignCity"
+                                               formControlName="ForeignCity" placeholder="Mention the city you're in"
+                                               (blur)="selectedForeignCity = registerForm.controls['ForeignCity'].value" 
+                                               [readonly]="selectedForeignCity !== ''">
+                                        <div class="input-group-append" *ngIf="selectedForeignCity">
+                                            <span class="input-group-text bg-danger text-white"
+                                                  (click)="clearForeignCity()">
+                                                  <i class="fa fa-times"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                </div>
+
+                        </div>
+
+                        <!-- Resume Upload -->
+                        <div class="form-group">
+                            <label class="upload-label">Upload Resume</label>
+                            <div class="custom-file-upload">
+
+                              <span class="file-text">  <input type="file" (change)="onFileChange($event)"  formControlName="Resume">DOC, DOCx, PDF, RTF | Max: 2 MB</span>
+                            
+                            </div>
+                            <div class="file-description">
+                              <small>Recruiters give first preference to candidates who have a resume</small>
+                            </div>
+                          </div>
+                          
+                        <div class="whatsapp-checkbox-container">
+                            <input type="checkbox" class="whatsapp-checkbox" 
+                                   formControlName="WhatsappUpdates">
+                            <label for="whatsappUpdates" class="whatsapp-label">
+                               Send me important updates on <i class="fa fa-whatsapp"></i> WhatsApp
+                            </label>
+                        </div>
+                        
+                        
+
+                        <!-- Terms and Register Button -->
+                        <small class="d-block text-center mt-2">By clicking Register, you agree to the Terms and
+                            Conditions & Privacy Policy of IB jobs</small>
+                        <button type="submit" class="btn btn-primary mt-4 w-100">Register Now</button>
+
+                        <!-- Social Login -->
+                        <hr class="my-4">
+                        <div class="text-center">
+                          
+                            <button class="btn btn-light mb-2 btn-google" (click)="googleLogin()">
+                                <img src="assets/google.png" height="20px"> Continue with Google
+                            </button>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

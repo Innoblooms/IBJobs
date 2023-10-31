@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <h3 class="text-center">Your Shopping Cart</h3>
+    <div class="card mt-4">
+        <div class="card-header">
+            <strong>Product Details</strong>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let item of cartItems">
+                <div class="row align-items-center">
+                    <div class="col-md-4">{{ item.title }}</div>
+                    <div class="col-md-2 text-center">₹{{ item.price }}</div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <button class="btn btn-outline-secondary" (click)="decreaseQuantity(item)">-</button>
+                            <input type="text" class="form-control text-center" [value]="item.quantity">
+                            <button class="btn btn-outline-secondary" (click)="increaseQuantity(item)">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center">₹{{ item.price * item.quantity }}</div>
+                    <div class="col-md-1 text-right">
+                        <button class="btn btn-sm btn-danger" (click)="removeFromCart(item)">X</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="card-footer text-right">
+            <strong>Total: ₹{{ getTotalAmount() }}</strong>
+            <button class="btn btn-success ml-4" routerLink="/paymentpage" (click)="proceedToBuy()">Proceed to Buy</button>
+        </div>
+    </div>
+</div>

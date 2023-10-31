@@ -1,0 +1,108 @@
+/* Making sure the container fits the screen width with a little padding */
+.container {
+    max-width: 100%;
+    padding: 0 10px;
+    height: 60px;
+    font-size: 16px;
+}
+
+/* Adjusting the padding for the navbar links for a tighter look */
+.navbar-nav .nav-link {
+    padding: 0.5rem 0.75rem;
+}
+
+/* Adjusting the margin for the second set of navbar items to bring them closer to the right edge */
+.navbar-nav.second {
+    margin-right: 20px;
+}
+.navbar-brand{
+    font-size: 20px;
+}
+.nav-link i.fas {
+    font-size: 24px;  
+}
+.forfont{
+    font-size: 40px;
+    border: 2px solid white;
+    padding: 2px;
+    border-radius: 100%;
+}
+.fas.fa-user-circle {
+    font-size: 40px !important;
+    margin-top: -9px;
+}
+.nav-item.position-relative {
+    position: relative;
+}
+
+.nav-link i.fas.fa-shopping-cart {
+    position: relative;
+    z-index: 1; /* Ensure the icon is above the badge for better visibility */
+}
+
+.badge {
+    position: absolute;
+    top: -10px; /* Adjust to get the desired position. */
+    right: 10px; /* Adjust to get the desired position. */
+    padding: 0.2em 0.5em;
+    border-radius: 50%; /* Makes the badge circular */
+    background-color: red;
+    color: white;
+    font-size: 0.75rem;
+    min-width: 18px;
+    text-align: center;
+}
+/* Making sure the container fits the screen width with a little padding */
+.container {
+    max-width: 100%;
+    padding: 0 10px;
+    height: 60px;
+    font-size: 16px;
+}
+
+/* Adjusting the padding for the navbar links for a tighter look */
+.navbar-nav .nav-link {
+    padding: 0.5rem 0.75rem;
+}
+
+/* Adjusting the margin for the second set of navbar items to bring them closer to the right edge */
+.navbar-nav.second {
+    margin-right: 20px;
+}
+.navbar-brand{
+    font-size: 20px;
+}
+.nav-link i.fas {
+    font-size: 24px;  
+}
+.forfont{
+    font-size: 40px;
+    border: 2px solid white;
+    padding: 2px;
+    border-radius: 100%;
+}
+.fas.fa-user-circle {
+    font-size: 40px !important;
+    margin-top: -9px;
+}
+.nav-item.position-relative {
+    position: relative;
+}
+
+.nav-link i.fas.fa-shopping-cart {
+    position: relative;
+    z-index: 1; /* Ensure the icon is above the badge for better visibility */
+}
+
+.badge {
+    position: absolute;
+    top: -10px; /* Adjust to get the desired position. */
+    right: 10px; /* Adjust to get the desired position. */
+    padding: 0.2em 0.5em;
+    border-radius: 50%; /* Makes the badge circular */
+    background-color: red;
+    color: white;
+    font-size: 0.75rem;
+    min-width: 18px;
+    text-align: center;
+}

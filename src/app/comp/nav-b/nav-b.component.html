@@ -1,0 +1,220 @@
+<!-- Employee Navbar -->
+<nav *ngIf="isEmployee" class="navbar navbar-expand-lg navbar-light bg-light full-width-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand enhanced-font" routerLink="" (click)="closeNavbar()">Ib Jobs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+
+            <div>
+                <!-- ... Existing Navbar Code ... -->
+
+                <ul class="navbar-nav ms-2">
+                    <!-- Static Profile -->
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/profile" (click)="closeNavbar()">
+                            <i class="fas fa-user-alt"></i>
+                        </a>
+                    </li>
+                    <!-- Remaining Navbar Items -->
+                    <!-- ... -->
+                </ul>
+            </div>
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="" (click)="closeNavbar()">Home</a>
+                </li>
+                <li class="nav-item dropdown multi-dropdown">
+                <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" routerLink="/jobs" id="jobsDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Jobs
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end multi-section-dropdown">
+                        <div class="section">
+                            <h6 class="dropdown-header">Popular Categories</h6>
+                            <a class="dropdown-item" routerLink="/it" (click)="closeNavbar()">IT jobs</a>
+                            <a class="dropdown-item" routerLink="/sales" (click)="closeNavbar()">Sales jobs</a>
+                            <a class="dropdown-item" routerLink="/marketing" (click)="closeNavbar()">Marketing jobs</a>
+                            <a class="dropdown-item" routerLink="/data" (click)="closeNavbar()">Data Science jobs</a>
+                            <a class="dropdown-item" routerLink="/hr" (click)="closeNavbar()">HR jobs</a>
+                            <a class="dropdown-item" routerLink="/engineering" (click)="closeNavbar()">Engineering
+                                jobs</a>
+
+                        </div>
+                        <div class="section">
+                            <h6 class="dropdown-header">Jobs in demand</h6>
+                            <a class="dropdown-item" routerLink="/fresher" (click)="closeNavbar()">Fresher Jobs</a>
+                            <a class="dropdown-item" routerLink="/mnc" (click)="closeNavbar()">MNC jobs</a>
+                            <a class="dropdown-item" routerLink="/remote" (click)="closeNavbar()">Remote Jobs</a>
+                            <a class="dropdown-item" routerLink="/wfh" (click)="closeNavbar()">Work from home jobs</a>
+                            <a class="dropdown-item" routerLink="/walkinjob" (click)="closeNavbar()">Walk-in jobs</a>
+                            <a class="dropdown-item" routerLink="/parttimejob" (click)="closeNavbar()">part-time
+                                jobs</a>
+                        </div>
+                        <div class="section">
+                            <h6 class="dropdown-header">Jobs by location</h6>
+                            <a class="dropdown-item" routerLink="/delhi" (click)="closeNavbar()">Jobs in delhi</a>
+                            <a class="dropdown-item" routerLink="/mumbai" (click)="closeNavbar()">Jobs in mumbai</a>
+                            <a class="dropdown-item" routerLink="/bangalore" (click)="closeNavbar()">Jobs in
+                                bangalore</a>
+                            <a class="dropdown-item" routerLink="/hyderabad" (click)="closeNavbar()">Jobs in
+                                hyderabad</a>
+                            <a class="dropdown-item" routerLink="/chennai" (click)="closeNavbar()">Jobs in chennai</a>
+                            <a class="dropdown-item" routerLink="/pune" (click)="closeNavbar()">Jobs in pune</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" routerLink="" id="jobsDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Company
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end multi-section-dropdown">
+                        <div class="section">
+                            <h6 class="dropdown-header">Explore collection</h6>
+                            <a class="dropdown-item" routerLink="/unicorn" (click)="closeNavbar()">Unicorn</a>
+                            <a class="dropdown-item" routerLink="/mnc" (click)="closeNavbar()">MNC</a>
+                            <a class="dropdown-item" routerLink="/startup" (click)="closeNavbar()">Startuup</a>
+                            <a class="dropdown-item" routerLink="/productbase" (click)="closeNavbar()">Product base</a>
+                            <a class="dropdown-item" routerLink="/internet" (click)="closeNavbar()">Internet</a>
+
+                        </div>
+                        <div class="section">
+                            <h6 class="dropdown-header">Category 2</h6>
+                            <a class="dropdown-item" routerLink="/topcompanies" (click)="closeNavbar()">Top
+                                companies</a>
+                            <a class="dropdown-item" routerLink="/itcompanies" (click)="closeNavbar()">IT companies</a>
+                            <a class="dropdown-item" routerLink="/fintech" (click)="closeNavbar()">Fitntech
+                                companies</a>
+                            <a class="dropdown-item" routerLink="/sponsored" (click)="closeNavbar()">Sponsored
+                                companies</a>
+                            <a class="dropdown-item" routerLink="/featured" (click)="closeNavbar()">Featured
+                                companies</a>
+                        </div>
+                        <!-- <div class="section">
+                                    <h6 class="dropdown-header">Explore companies</h6>
+                                    <a class="dropdown-item" routerLink="">Top companies</a>
+                                    <a class="dropdown-item" routerLink="">IT companies</a>
+                                    <a class="dropdown-item" routerLink="">Fitntech companies</a>
+                                    <a class="dropdown-item" routerLink="">Sponsored companies</a>
+                                    <a class="dropdown-item" routerLink="">Featured companies</a>
+                                </div> -->
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" routerLink="/employerslogin" id="jobsDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" (click)="isEmployee = false">
+                        For Employers
+                    </a>
+
+                    <div class="dropdown-menu multi-section-dropdown">
+                        <div class="section">
+                            <h6 class="dropdown-header">Explore collection</h6>
+                            <a class="dropdown-item" routerLink="/postajob" (click)="closeNavbar()" data-bs-toggle="dropdown" aria-expanded="false" (click)="isEmployee = false">Post a job</a>
+                            <a class="dropdown-item" routerLink="/employerslogin" (click)="closeNavbar()" data-bs-toggle="dropdown" aria-expanded="false" (click)="isEmployee = false">Employers
+                                login</a>
+                            <!-- <a class="dropdown-item" routerLink="">Employer Login</a> -->
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <form class="d-flex me-2">
+                <input class="form-control me-2" type="search" routerLink="/jobs" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+            <ul class="navbar-nav ms-2">
+                <li class="nav-item">
+                    <a class="nav-link me-3" routerLink="/login" (click)="closeNavbar()">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/signup" (click)="closeNavbar()">Signup</a>
+                </li>
+                <a class="nav-link dropdown-toggle" id="accountDropdown" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false"><i class="fas fa-user-circle" (click)="logout()"></i></a>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Employer Navbar -->
+<nav *ngIf="!isEmployee" class="navbar navbar-expand-lg navbar-light bg-light full-width-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand enhanced-font" routerLink="/">Ib Jobs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#employerNavbarContent"
+            aria-controls="employerNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="employerNavbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+                </li>
+                <!-- Dropdown for Jobs & Responses -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="jobsResponses" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Jobs & Responses</a>
+                    <div class="dropdown-menu" aria-labelledby="jobsResponses">
+
+                    </div>
+                    <div class="dropdown-menu multi-section-dropdown">
+                        <div class="section">
+                            <a class="dropdown-item" routerLink="/postajob">Post a Job</a>
+                            <a class="dropdown-item" routerLink="/postintern">Post Internship</a>
+                            <a class="dropdown-item" routerLink="/classified">Post Classified</a>
+                            <a class="dropdown-item" routerLink="/managejob">Manage Jobs</a>
+                            <a class="dropdown-item" routerLink="/searchresume">Search Resumes</a>
+                            <a class="dropdown-item" routerLink="/viewresponse">View Responses</a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Dropdown for Services -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="employerServices" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Services</a>
+                    <div class="dropdown-menu multi-section-dropdown">
+                        <div class="section">
+                            <a class="dropdown-item" routerLink="">Resume Database Access</a>
+                            <a class="dropdown-item" routerLink="">Recruitment Solutions</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/messages"><i class="fas fa-comments"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/notification"><i class="fas fa-bell"></i></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="accountDropdown" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"><i class="fas fa-user-circle"></i></a>
+                  
+
+
+                    <div class="dropdown-menu multi-section-dropdown">
+                        <div class="section">
+                            <a class="dropdown-item" routerLink="/companyprofile">Profile</a>
+                            <a class="dropdown-item" routerLink="">Settings</a>
+                            <a class="dropdown-item" (click)="logoutt()">Logout</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/cartpage"><i class="fas fa-shopping-cart"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/" (click)="isEmployee = true">For Employee</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

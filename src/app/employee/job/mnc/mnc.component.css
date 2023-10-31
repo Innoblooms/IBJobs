@@ -1,0 +1,18 @@
+/* .custom-apply-btn {
+    background-color: #2222FF;
+    color: white;
+    border-radius: 10px;
+    margin: 5px;
+} */
+.custom-apply-btn {
+    background-color: #2222FF;
+    color: white;
+    border-radius: 10px;
+    margin: 5px;
+  }
+  
+  .custom-apply-btn-active {
+    background-color: #FFFFFF;
+    color: #2222FF;
+  }
+  

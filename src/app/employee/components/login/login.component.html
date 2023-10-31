@@ -1,0 +1,198 @@
+<div class="container1 d-flex flex-column align-items-stretch justify-content-center mt-4" style="height: calc(100vh - 20px);">
+    <div *ngIf="formState === 'default'">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                    <div class="card-body">
+                        <h1 class="card-title text-center mb-4">Login Employee</h1>
+
+                        <div>
+                            <label><strong>Email ID / Username</strong></label>
+                            <input type="email" class="form-control"
+                                placeholder="Enter your email or username" formControlName="EmailD">
+                        </div>
+
+                        <div>
+                            <label><strong>Password</strong></label>
+                            <div class="input-group">
+                                <input [type]="isPasswordVisible ? 'text' : 'password'" class="form-control"
+                                    placeholder="Enter your password" formControlName="Password">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        (click)="togglePasswordVisibility()">
+                                        <i [ngClass]="isPasswordVisible ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <a (click)="formState = 'forgotPassword'" class="d-block text-right mt-2">Forgot
+                                Password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+                        <div class="form-group text-center mt-3">
+                            <button class="btn btn-outline-primary btn-otp" (click)="formState = 'otp'">Use OTP to
+                                Login</button>
+                        </div>
+
+                        <div class="text-center mt-4">
+                          
+                            <button class="btn btn-light mb-2 btn-google btn-block" (click)="googleLogin()">
+                                <img src="assets/google.png" height="20px"> Login with Google
+                            </button>
+                            
+                        </div>
+                        <div class="text-center mt-4">
+                            <span class="text-muted">Not registered? </span><a routerLink="/signup">Create an
+                                account</a>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <div *ngIf="formState === 'forgotPassword'">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <button class="btn btn-light btn-sm float-right"
+                            (click)="formState = 'default'">&times;</button>
+                        <h3 class="card-title text-center mb-4">Forgot Password</h3>
+
+                        <div class="form-group">
+                            <div class="d-flex justify-content-between">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="loginOption" id="radioEmail"
+                                        value="email" checked>
+                                    <label class="form-check-label" for="radioEmail">Email ID</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="loginOption" id="radioOTP"
+                                        value="otp">
+                                    <label class="form-check-label" for="radioOTP">Username</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email"><strong>Email ID</strong></label>
+                            <div class="input-group">
+                                <input type="email" class="form-control rounded-right" id="email"
+                                    placeholder="Enter your email" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary rounded-left" type="button">Go</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="otp"><strong>OTP</strong></label>
+                            <input type="text" class="form-control" id="otp" placeholder="Enter OTP" required>
+                            <a href="#" class="d-block text-right mt-2">Resend OTP?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        <div class="text-center mt-4">
+                          
+                            <button class="btn btn-light mb-2 btn-google btn-block" (click)="googleLogin()">
+                                <img src="assets/google.png" height="20px"> Login with Google
+                            </button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OTP Form -->
+    <div *ngIf="formState === 'otp'">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+
+                        <!-- Step 1: Mobile Number Entry -->
+                        <div *ngIf="otpStep === 1">
+                            <button class="btn btn-light btn-sm float-right"
+                                (click)="formState = 'default'">&times;</button>
+                            <h3 class="card-title text-center mb-4">Login using OTP</h3>
+
+                            <div class="form-group">
+                                <label for="mobileNumber"><strong>Mobile Number</strong></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">+91</span>
+                                    </div>
+                                    <input type="tel" id="mobileNumber" class="form-control"
+                                        placeholder="Enter your 10 digit mobile number">
+                                </div>
+                                <small>You will receive an OTP on this number</small>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary btn-block" (click)="requestOTP()">Get
+                                    OTP</button>
+                            </div>
+
+                            <div class="mt-3">
+                                <button class="btn  btn-block btn-outline-danger" (click)="useEmailLogin()">Use Email to
+                                    Login</button>
+                            </div>
+
+                            <div class="text-center mt-4">
+                          
+                                <button class="btn btn-light mb-2 btn-block btn-google" (click)="googleLogin()">
+                                    <img src="assets/google.png" height="20px"> Login with Google
+                                </button>
+                                
+                            </div>
+                        </div>
+
+
+                        <!-- Step 2: OTP Verification -->
+                        <div *ngIf="otpStep === 2">
+
+                            <h3 class="card-title text-center mb-4">Verify OTP</h3>
+                            <!-- OTP Input Field -->
+                            <div class="form-group">
+                                <label for="mobileNumberDisplay"><strong>Mobile Number</strong></label>
+                                <div (click)="otpStep = 1">
+                                    +91 - 9876543287 <i class="fa fa-edit" (click)="otpStep = 1"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="otp"><strong>OTP</strong></label>
+                                <input type="text" id="otp" class="form-control"
+                                    placeholder="Enter OTP sent on your mobile number">
+                                <small>Your OTP should arrive in 52 Seconds</small>
+                            </div>
+
+                            <div class="text-muted mb-3">
+                                An OTP has been sent to 9876543287. You may not receive the OTP if the email/number is
+                                not
+                                registered with Naukri.
+                            </div>
+
+                            <button class="btn btn-primary btn-block">Login</button>
+                            <div class="text-center mt-4">
+                          
+                                <button class="btn btn-light mb-2 btn-block btn-google" (click)="googleLogin()">
+                                    <img src="assets/google.png" height="20px"> Login with Google
+                                </button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,154 @@
+
+
+
+
+
+
+<div class="profile-container">
+
+    <!-- Profile Header -->
+    <div class="profile-header">
+        <div class="profile-image-section">
+            <img [src]="profileImageUrl" alt="Profile Image" class="profile-image">
+            <button *ngIf="!isEditing" (click)="toggleEditMode()">Edit Profile</button>
+        </div>
+    </div>
+
+    <!-- Profile Visibility Section -->
+    <div class="section">
+        <h2>Profile Visibility</h2>
+        <ng-container *ngIf="!isEditing">
+            <p><strong>Status:</strong> {{profileVisibility}}</p>
+        </ng-container>
+        <ng-container *ngIf="isEditing">
+            <select [(ngModel)]="profileVisibility">
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+                <option value="employer">Specific Employer</option>
+            </select>
+        </ng-container>
+    </div>
+
+    <div class="section">
+        <h2>Personal Details</h2>
+        <ng-container *ngIf="!isEditing">
+            <p><strong>Name:</strong> {{personalInfo.fullName}}</p>
+            <p><strong>Email:</strong> {{personalInfo.email}}</p>
+            <p><strong>Phone:</strong> {{personalInfo.phone}}</p>
+            <p><strong>Location:</strong> {{personalInfo.location}}</p>
+            <p><strong>Resume Headline:</strong> {{personalInfo.resumeHeadline}}</p>
+        </ng-container>
+        <ng-container *ngIf="isEditing">
+            <label>Name:</label><input type="text" [(ngModel)]="personalInfo.fullName">
+            <label>Email:</label><input type="email" [(ngModel)]="personalInfo.email">
+            <label>Phone:</label><input type="tel" [(ngModel)]="personalInfo.phone">
+            <label>Location:</label><input type="text" [(ngModel)]="personalInfo.location">
+            <label>Resume Headline:</label><input type="text" [(ngModel)]="personalInfo.resumeHeadline">
+        </ng-container>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="section">
+        <h2>Work Experience</h2>
+        <ng-container *ngFor="let experience of workExperiences">
+            <ng-container *ngIf="!isEditing">
+                <h3>{{experience.role}} at {{experience.company}}</h3>
+                <p>{{experience.startDate}} - {{experience.endDate}}</p>
+                <p>{{experience.description}}</p>
+            </ng-container>
+            <ng-container *ngIf="isEditing">
+                <label>Role:</label><input type="text" [(ngModel)]="experience.role">
+                <label>Company:</label><input type="text" [(ngModel)]="experience.company">
+                <label>Start Date:</label><input type="date" [(ngModel)]="experience.startDate">
+                <label>End Date:</label><input type="date" [(ngModel)]="experience.endDate">
+                <label>Description:</label><textarea [(ngModel)]="experience.description"></textarea>
+   
+
+<!-- ... (Previous content remains unchanged) ... -->
+
+<!-- Education Section -->
+<div class="section">
+    <h2>Education</h2>
+    <ng-container *ngFor="let edu of education">
+        <ng-container *ngIf="!isEditing">
+            <h3>{{edu.degree}} from {{edu.institution}}</h3>
+            <p>{{edu.startYear}} - {{edu.endYear}}</p>
+        </ng-container>
+        <ng-container *ngIf="isEditing">
+            <label>Degree:</label><input type="text" [(ngModel)]="edu.degree">
+            <label>Institution:</label><input type="text" [(ngModel)]="edu.institution">
+            <label>Start Year:</label><input type="date" [(ngModel)]="edu.startYear">
+            <label>End Year:</label><input type="date" [(ngModel)]="edu.endYear">
+        </ng-container>
+
+
+<!-- Certifications Section -->
+<div class="section">
+    <h2>Certifications</h2>
+    <ng-container *ngFor="let cert of certifications">
+        <ng-container *ngIf="!isEditing">
+            <h3>{{cert.name}} from {{cert.authority}}</h3>
+            <p>{{cert.dateOfIssue}}</p>
+        </ng-container>
+        <ng-container *ngIf="isEditing">
+            <label>Certificate Name:</label><input type="text" [(ngModel)]="cert.name">
+            <label>Issuing Authority:</label><input type="text" [(ngModel)]="cert.authority">
+            <label>Date of Issue:</label><input type="date" [(ngModel)]="cert.dateOfIssue">
+        </ng-container>
+
+
+<!-- Skills Section -->
+<div class="section">
+    <h2>Skills</h2>
+    <ng-container *ngIf="!isEditing">
+        <ul>
+            <li *ngFor="let skill of skills">{{skill}}</li>
+        </ul>
+    </ng-container>
+    <ng-container *ngIf="isEditing">
+        <label>Skills (comma separated):</label>
+        <input type="text" [(ngModel)]="skillsString">
+    </ng-container>
+</div>
+
+    <div class="section">
+        <h2>Languages</h2>
+        <ng-container *ngIf="!isEditing">
+            <ul>
+                <li *ngFor="let lang of languages">{{lang}}</li>
+            </ul>
+        </ng-container>
+        <ng-container *ngIf="isEditing">
+            <label>Languages (comma separated):</label>
+            <input type="text" [(ngModel)]="languagesString">
+        </ng-container>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+        <h2>Projects</h2>
+        <ng-container *ngFor="let project of projects">
+            <ng-container *ngIf="!isEditing">
+                <h3>{{project.title}}</h3>
+                <p>{{project.description}}</p>
+            </ng-container>
+            <ng-container *ngIf="isEditing">
+                <label>Project Title:</label><input type="text" [(ngModel)]="project.title">
+                <label>Description:</label><textarea [(ngModel)]="project.description"></textarea>
+            </ng-container>
+ 
+
+    <!-- Download Resume Button -->
+    <div class="section">
+        <input type="file" (change)="onFileSelected($event)" />
+        <button (click)="downloadResume()" *ngIf="selectedFile">Download Resume</button>
+    </div>
+    
+
+    <!-- Action Buttons -->
+    <div class="action-button-section">
+        <button *ngIf="isEditing" (click)="saveChanges()">Save Changes</button>
+        <button *ngIf="!isEditing" (click)="toggleEditMode()">Edit</button>
+        <button (click)="applyForJob()">Apply For Job</button>
+    </div>
+

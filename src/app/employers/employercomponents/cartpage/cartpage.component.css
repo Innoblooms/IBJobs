@@ -1,0 +1,13 @@
+.card-header, .list-group-item, .card-footer {
+    border: none;
+    background-color: #f8f9fa;
+}
+
+.list-group-item {
+    border-top: 1px solid #e9ecef;
+}
+
+.input-group {
+    width: 100px;
+    margin: auto;
+}

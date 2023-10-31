@@ -1,0 +1,111 @@
+<div class="Container">
+    <h1>Post a Job - Private</h1>
+    <form [formGroup]="Postjob" (ngSubmit)="submitJob()">
+        <div class="alert alert-danger" *ngIf="submitted && Postjob.invalid">
+            Please fix the following errors before submitting the form.
+        </div>
+        <div class="form-row">
+            <div class="form-column">
+                <label>Job Title / Designation *</label>
+                <input type="text" formControlName="jobTitle">
+                <div *ngIf="submitted && Postjob.get('jobTitle').hasError('required')" class="text-danger">Job Title is required</div>
+            </div>
+            <div class="form-column">
+                <label>Employment Type *</label>
+                <select formControlName="employmentType">
+                    <option value="Full Time, Permanent">Full Time, Permanent</option>
+                    <option value="Part Time">Part Time</option>
+                    <option value="Contract">Contract</option>
+                </select>
+                <div *ngIf="submitted && Postjob.get('employmentType').hasError('required')" class="text-danger">Employment Type is required</div>
+            </div>
+        </div>
+        <label>Work Mode *</label>
+        <select formControlName="workMode">
+            <option value="In office">In office</option>
+            <option value="Remote">Remote</option>
+        </select>
+        <div *ngIf="submitted && Postjob.get('workMode').hasError('required')" class="text-danger">Work Mode is required</div>
+        <label>Job Description *</label>
+        <textarea formControlName="jobDescription" rows="5"></textarea>
+        <div *ngIf="submitted && Postjob.get('jobDescription').hasError('required')" class="text-danger">Job Description is required</div>
+        <label>Preferred Candidate Profile *</label>
+        <textarea formControlName="candidateProfile" rows="5"></textarea>
+        <div *ngIf="submitted && Postjob.get('candidateProfile').hasError('required')" class="text-danger">Preferred Candidate Profile is required</div>
+        <label>Perks and Benefits *</label>
+        <textarea formControlName="perksBenefits" rows="5"></textarea>
+        <div *ngIf="submitted && Postjob.get('perksBenefits').hasError('required')" class="text-danger">Perks and Benefits is required</div>
+        <label>Key Skills *</label>
+        <input type="text" formControlName="keySkills">
+        <div *ngIf="submitted && Postjob.get('keySkills').hasError('required')" class="text-danger">Key Skills is required</div>
+        <div class="form-row">
+            <div class="form-column">
+                <label>Work Experience (years) *</label>
+                <input type="number" formControlName="workExperienceMin" placeholder="Min">
+                <div *ngIf="submitted && Postjob.get('workExperienceMin').hasError('required')" class="text-danger">Work Experience (Min) is required</div>
+            </div>
+            <div class="form-column">
+                <label>&nbsp;</label>
+                <input type="number" formControlName="workExperienceMax" placeholder="Max">
+                <div *ngIf="submitted && Postjob.get('workExperienceMax').hasError('required')" class="text-danger">Work Experience (Max) is required</div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-column">
+                <label>Annual Salary Range (INR) *</label>
+                <input type="number" formControlName="salaryMin" placeholder="Min">
+                <div *ngIf="submitted && Postjob.get('salaryMin').hasError('required')" class="text-danger">Salary (Min) is required</div>
+            </div>
+            <div class="form-column">
+                <label>&nbsp;</label>
+                <input type="number" formControlName="salaryMax" placeholder="Max">
+                <div *ngIf="submitted && Postjob.get('salaryMax').hasError('required')" class="text-danger">Salary (Max) is required</div>
+            </div>
+        </div>
+        <label>Location *</label>
+        <input type="text" formControlName="location">
+        <div *ngIf="submitted && Postjob.get('location').hasError('required')" class="text-danger">Location is required</div>
+        <label>Industry *</label>
+        <input type="text" formControlName="industry">
+        <div *ngIf="submitted && Postjob.get('industry').hasError('required')" class="text-danger">Industry is required</div>
+        <label>Department *</label>
+        <input type="text" formControlName="department">
+        <div *ngIf="submitted && Postjob.get('department').hasError('required')" class="text-danger">Department is required</div>
+        <label>Reference Code *</label>
+        <input type="text" formControlName="referenceCode">
+        <div *ngIf="submitted && Postjob.get('referenceCode').hasError('required')" class="text-danger">Reference Code is required</div>
+        <label>Number of Vacancies *</label>
+        <input type="number" formControlName="vacancies">
+        <div *ngIf="submitted && Postjob.get('vacancies').hasError('required')" class="text-danger">Number of Vacancies is required</div>
+        <label>Educational Qualification *</label>
+        <input type="text" formControlName="educationalQualification">
+        <div *ngIf="submitted && Postjob.get('educationalQualification').hasError('required')" class="text-danger">Educational Qualification is required</div>
+        <label>Request Candidates for Video Profile *</label>
+        <select formControlName="videoProfile">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <div *ngIf="submitted && Postjob.get('videoProfile').hasError('required')" class="text-danger">Request Candidates for Video Profile is required</div>
+        <label>Company Name *</label>
+        <input type="text" formControlName="companyName">
+        <div *ngIf="submitted && Postjob.get('companyName').hasError('required')" class="text-danger">Company Name is required</div>
+        <label>Company Website</label>
+        <input type="text" formControlName="companyWebsite">
+        <label>Company Details *</label>
+        <textarea formControlName="companyDetails" rows="5"></textarea>
+        <div *ngIf="submitted && Postjob.get('companyDetails').hasError('required')" class="text-danger">Company Details is required</div>
+        <label>Company Address *</label>
+        <input type="text" formControlName="companyAddress">
+        <div *ngIf="submitted && Postjob.get('companyAddress').hasError('required')" class="text-danger">Company Address is required</div>
+        <label>Recruiter Name *</label>
+        <input type="text" formControlName="recruiterName">
+        <div *ngIf="submitted && Postjob.get('recruiterName').hasError('required')" class="text-danger">Recruiter Name is required</div>
+        <label>Recruiter Email *</label>
+        <input type="email" formControlName="recruiterEmail">
+        <div *ngIf="submitted && Postjob.get('recruiterEmail').hasError('required')" class="text-danger">Recruiter Email is required</div>
+        <label>Recruiter Phone *</label>
+        <input type="tel" formControlName="recruiterPhone">
+        <div *ngIf="submitted && Postjob.get('recruiterPhone').hasError('required')" class="text-danger">Recruiter Phone is required</div>
+        <input type="submit" value="Preview & Post Job" />
+    </form>
+</div>

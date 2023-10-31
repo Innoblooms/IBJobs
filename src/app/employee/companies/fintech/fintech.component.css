@@ -1,0 +1,27 @@
+/* Style for the form field and label */
+.mat-form-field {
+    width: 100%;
+  }
+  
+  .mat-label {
+    font-size: 16px;
+  }
+  
+  /* Style for the input field */
+  .mat-input-element {
+    font-size: 14px;
+    padding: 8px;
+  }
+  
+  /* Style for the Autocomplete dropdown options */
+  .mat-option {
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  /* Style for the highlighted option */
+  .mat-option.mat-option-highlighted {
+    background-color: #337ab7; /* Example highlight color */
+    color: #fff;
+  }
+  

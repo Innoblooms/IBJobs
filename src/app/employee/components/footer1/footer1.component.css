@@ -1,0 +1,29 @@
+
+
+
+.footer {
+    bottom: 0;
+    background-color: #5c5c6b; /* Black background */
+    padding: 50px 0; /* Increased height */
+    width: 100%;
+    margin-top: 50px; /* Margin from the upper content */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.content {
+    text-align: center;
+    color: #ffffff; 
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #bbb;
+}

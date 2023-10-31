@@ -1,0 +1,81 @@
+
+
+
+
+
+
+<div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h1 class="brand">Job<span>Portal</span></h1>
+        <nav>
+            <a routerLink="/dashboard" class="active"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="#"><i class="fas fa-briefcase"></i> Job Listings</a>
+            <a href="#"><i class="fas fa-users"></i> Candidates</a>
+            <a routerLink="/companyprofile"><i class="fas fa-user-circle"></i> Profile</a>
+            <a routerLink="/messages"><i class="fas fa-envelope"></i> Messages</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Greetings -->
+        <h2>Welcome Back, <span>Employer!</span></h2>
+
+        <!-- Statistics -->
+        <div class="stats">
+            <div class="stat">
+                <span>{{ jobsPosted }}</span>
+                Jobs Posted
+            </div>
+            <div class="stat">
+                <span>{{ activeJobs }}</span>
+                Active Jobs
+            </div>
+            <div class="stat">
+                <span>{{ receivedApplications }}</span>
+                Received Applications
+            </div>
+        </div>
+
+        <!-- Listings & Candidates -->
+        <div class="posted-jobs">
+            <h3>Your Job Listings</h3>
+            <table>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Location</th>
+                    <th>No. of Applications</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let job of recentJobs">
+                    <td>{{ job.title }}</td>
+                    <td>{{ job.location }}</td>
+                    <td>{{ job.applications }}</td>
+                    <td><button>View Applications</button></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="recommended-candidates">
+            <h3>Top Candidates for You</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Skills</th>
+                        <th>Rank</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let candidate of candidates.slice(0,15)"> <!-- Showing top 5 for simplicity -->
+                        <td>{{ candidate.name }}</td>
+                        <td>{{ candidate.skills.join(', ') }}</td>
+                        <td>{{ candidate.email }}</td>
+                        <td><button class="profile-button">View Profile</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        

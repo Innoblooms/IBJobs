@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/">Job Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+                </li>
+                <!-- Dropdown for Jobs & Responses -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"  id="jobsResponses" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Jobs & Responses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="jobsResponses">
+                        <a class="dropdown-item" routerLink="/postajob"> Post a Job</a>
+                        <a class="dropdown-item" routerLink="/postintern"> Post Internship</a>
+                        <a class="dropdown-item" routerLink="/classified"> Post Classified</a>
+                        <a class="dropdown-item" routerLink="/managejob">Manage Jobs</a>
+                        <a class="dropdown-item" routerLink="/searchresume"> Search Resumes</a>
+                        <a class="dropdown-item" routerLink="/viewresponse"> View Responses</a>
+
+                        <!-- More items here if needed -->
+                    </div>
+                </li>
+
+                <!-- Dropdown for Services -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" routerLink="" id="employerServices" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Services
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="employerServices">
+                        <a class="dropdown-item" routerLink="">Resume Database Access</a>
+                        <a class="dropdown-item" routerLink=""> Recruitment Solutions</a>
+                    </div>
+                </li>
+              
+            </ul>
+            <ul class="navbar-nav second">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/messages"><i class="fas fa-comments"></i> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/notification"><i class="fas fa-bell"></i></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  " id="accountDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle "></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="accountDropdown">
+                        <a class="dropdown-item" href="/companyprofile"><i class="fas fa-user"></i> Profile</a>
+                        <a class="dropdown-item" routerLink=""><i class="fas fa-cogs"></i> Settings</a>
+                        <a class="dropdown-item" routerLink=""><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </li>
+                <li class="nav-item position-relative cart-icon">
+                    <a class="nav-link" routerLink="/cartpage"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-badge position-absolute badge rounded-pill bg-danger">
+                        {{ cartCount }}
+                        <span class="visually-hidden">items in cart</span>
+                    </span>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link " routerLink="/" id="jobsDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        For Employee
+                    </a>
+
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>

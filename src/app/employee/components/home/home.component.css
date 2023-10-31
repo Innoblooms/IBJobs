@@ -1,0 +1,478 @@
+/* Set the default height to 500px for all screens */
+.card-img-top{
+  height: 250px;
+}
+.carousel-inner {
+    height: 633px !important;
+    margin-top: 10px;
+}
+  
+.carousel-inner img {
+    height: 635px !important;
+    object-fit: cover; /* Ensures the image covers the area without distorting */
+    width: 100%;
+}
+
+/* For screens smaller than 768px (like some tablets in portrait mode) you can reduce the height. */
+
+@media (max-width: 767px) {
+    .carousel-inner {
+        height: 400px; /* Reduced height for screens smaller than 768px */
+    }
+}
+
+/* For even smaller screens, like phones, reduce the height further if needed */
+
+@media (max-width: 576px) {
+    .carousel-inner {
+        height: 300px; /* Reduced height for phones */
+    }
+}
+
+
+.card-container {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.card {
+  display: inline-block;
+  margin-right: 20px; /* Adjust the spacing between cards */
+  animation: marquee 10s linear infinite; /* Change the duration as needed */
+}
+
+
+/* cards */
+.card-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+  }
+  
+  .card {
+    width: 100px;
+    height: 220px;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    margin: 0 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .flex-cards {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+  
+  .carousel-control-prev {
+    left: 10px;
+  }
+  
+  .carousel-control-next {
+    right: 10px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .card-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .flex-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .carousel-control-prev:hover .carousel-control-prev-icon,
+  .carousel-control-next:hover .carousel-control-next-icon {
+    filter: invert(0.7); /* Adjust this to the desired hover color shade */
+  }
+  
+
+
+
+  .card-container {
+    display: flex;  
+    justify-content: center;  /* Cards ko center mein align karta hai. */
+    flex-wrap: wrap; 
+    gap: 20px;  /* Yeh property har card ke beech mein equal space provide karega. */
+}
+
+.card-wrapper {
+    flex: 0 0 calc(33.33% - 20px);  /* Yeh har card ko lagbhag 1/3 width dega aur 20px gap ko compensate karega. */
+    max-width: calc(33.33% - 20px);  /* Small screens ke liye maximum width. */
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;  /* Card ko full width dene ke liye within its container. */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card img.card-img-top {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+}
+
+.btn-primary {
+    background-color: #04888d;
+    border: none;
+    border-radius: 3px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.container {
+    padding: 50px 0;
+}
+
+
+
+
+/* Optional CSS for some spacing and style */
+h1 {
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+/* Optional CSS for some spacing and style */
+h1 {
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 40px 0;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  padding: 15px 25px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  width: 220px; 
+  justify-content: space-between;
+  font-family: Arial, sans-serif;
+}
+
+.category-item:hover {
+  background-color: #f7f7f7;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.category-item i {
+  font-size: 20px; /* Adjust as required */
+
+  color: #04888d; /* Font Awesome icon color */
+}
+
+.category-name {
+  font-size: 18px; /* Category name font size */
+  font-weight: bold; 
+  color: #333; /* Category name font color */
+  flex-grow: 2;
+  text-align: center;
+}
+
+.arrow-icon {
+  color: #666; /* Arrow color */
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .categories-container {
+      gap: 10px;
+      padding: 20px 0;
+  }
+  
+  .category-item {
+      width: 180px;
+      padding: 10px 15px;
+  }
+  
+  .category-name {
+      font-size: 16px;
+  }
+  
+  .category-item i {
+      font-size: 24px;
+  }
+}
+
+
+
+
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #04888d;
+}
+
+h2{
+  font-size: 2rem;
+  color: #04888d;
+  margin-bottom: 5px;
+}
+
+.para {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+
+.cont {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  border-radius: 8px;
+
+  margin: 30px 0;
+}
+
+
+.img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 992px) {
+  .cont {
+      padding: 30px 10px;
+  }
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  .para {
+      font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .img {
+      margin-bottom: 20px;
+  }
+}
+
+
+
+
+
+
+/* Navigation buttons for the card carousel */
+.carousel-control-prev, .carousel-control-next {
+  background-color: #04888d;  /* Using the shade of IB Jobs blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  background-color: #007bff;  /* IB Jobs blue on hover */
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-image: none;  /* Removing the default image */
+  border: solid 2px #fff;
+  border-width: 2px 2px 0 0;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  transform: rotate(45deg);
+}
+
+.carousel-control-prev-icon {
+  transform: rotate(225deg);
+}
+
+/* Cards inside the carousel */
+.flex-cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+}
+
+.card {
+  min-width: 280px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: #04888d;  /* IB Jobs blue for title */
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+
+
+
+/* .search-container {
+  display: flex;
+  margin-left: 23%;
+}
+
+.search-input {
+  padding: 10px;
+  width: 60%;
+  border: 1px solid #04888d;
+  border-bottom-left-radius: 12px;
+  border-top-left-radius: 12px;
+}
+
+.search-button {
+  padding: 10px 15px;
+  background-color: #04888d;
+  color: #fff; 
+  cursor: pointer;
+  border: 1px solid #04888d;
+  border-bottom-right-radius: 12px;
+  border-top-right-radius: 12px;
+} */
+
+
+
+
+/* @keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+} */
+/* Styling for the Autocomplete input */
+/* Style for the form field and label */
+
+/* Apply styles to the form field */
+.mat-form-field {
+  width: 100%;
+}
+
+/* Apply styles to the input element */
+.mat-input-element {
+  /* background-color: #04888d; Background color */
+  border-radius: 25px; /* Border radius */
+  padding: 8px; /* Padding inside the input */
+}
+
+/* Apply styles to the options in the dropdown */
+.mat-option {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+/* Add your custom styles here */
+form {
+  width: 300px; /* Adjust the width as needed */
+  margin: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+/* You can style the input field, dropdown, and options as needed */

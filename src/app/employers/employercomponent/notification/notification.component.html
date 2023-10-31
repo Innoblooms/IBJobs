@@ -1,0 +1,11 @@
+
+<div class="notification-container">
+    <h2>Notifications</h2>
+    <div *ngFor="let notification of notifications" class="notification">
+        <img [src]="notification.image" alt="{{ notification.name }}">
+        <div class="notification-content">
+            <h3>{{ notification.name }}</h3>
+            <p>has applied for the <span>{{ notification.jobTitle }}</span> position.</p>
+        </div>
+    </div>
+</div>

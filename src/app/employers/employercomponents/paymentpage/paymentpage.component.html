@@ -1,0 +1,83 @@
+<div class="container mt-5">
+    <h2 class="text-center">Total Payable Amount</h2>
+    <p class="text-center font-weight-bold">1 Hot Vacancy Listing | 7 days Resdex and 2 Hot Vacancies</p>
+    <h3 class="text-center">₹ 11564 /-</h3>
+    <p class="text-center">Inc. of all taxes</p>
+    <div class="text-center mb-3">
+        <a href="#">View & Edit Items (2)</a> | <a href="#">Add GST number</a>
+    </div>
+    <p class="text-center text-warning">To activate subscription, KYC verification is required on the next step!</p>
+
+    <ul class="nav nav-tabs mt-4 justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#upi">UPI</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#netBanking">Net Banking</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#wallets">Wallets</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#cheque">Cheque/DD</a>
+        </li>
+    </ul>
+
+    <div class="tab-content mt-4">
+        <!-- UPI Tab Content -->
+        <div class="tab-pane fade show active" id="upi">
+            <form (ngSubmit)="onUPISubmit()">
+                <div class="form-group">
+                    <label for="upiID">UPI ID*</label>
+                    <input type="text" class="form-control" id="upiID" placeholder="yourname@upi">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Pay with UPI</button>
+            </form>
+        </div>
+
+        <!-- Net Banking Tab Content -->
+        <div class="tab-pane fade" id="netBanking">
+            <form (ngSubmit)="onNetBankingSubmit()">
+                <div class="form-group">
+                    <label for="bank">Select Bank</label>
+                    <select class="form-control" id="bank">
+                        <option>SBI</option>
+                        <option>HDFC</option>
+                        <option>ICICI</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Pay with Net Banking</button>
+            </form>
+        </div>
+
+        <!-- Wallets Tab Content -->
+        <div class="tab-pane fade" id="wallets">
+            <form (ngSubmit)="onWalletSubmit()">
+                <div class="form-group">
+                    <label for="wallet">Choose Wallet</label>
+                    <select class="form-control" id="wallet">
+                        <option>Paytm</option>
+                        <option>PhonePe</option>
+                        <option>Google Pay</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Pay with Wallet</button>
+            </form>
+        </div>
+
+        <!-- Cheque/DD Tab Content -->
+        <div class="tab-pane fade" id="cheque">
+            <form (ngSubmit)="onChequeSubmit()">
+                <div class="form-group">
+                    <label for="chequeNo">Cheque/DD Number*</label>
+                    <input type="text" class="form-control" id="chequeNo">
+                </div>
+                <div class="form-group">
+                    <label for="bankName">Bank Name*</label>
+                    <input type="text" class="form-control" id="bankName">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit Cheque/DD</button>
+            </form>
+        </div>
+    </div>
+</div>

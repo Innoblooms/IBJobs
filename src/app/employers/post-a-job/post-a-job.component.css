@@ -1,0 +1,88 @@
+  /* Container */
+  .Container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+}
+
+/* Form Header */
+.Container h1 {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Labels */
+label {
+    font-size: 18px;
+    color: #555;
+    display: block;
+    margin-top: 15px;
+}
+
+/* Text Inputs, Select, and Textarea */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Textarea */
+textarea {
+    resize: vertical;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.form-column {
+    flex: 1;
+    margin-right: 10px; /* Adjust the spacing as needed */
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background-color: #0076ce;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Submit Button Hover */
+input[type="submit"]:hover {
+    background-color: #005999;
+}
+
+.alert {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.text-danger {
+    color: #f44336;
+}

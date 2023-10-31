@@ -1,0 +1,83 @@
+<div class="app-container">
+    <!-- Sidebar: Contains Profile, Search, and Contacts -->
+    <div class="sidebar">
+        <!-- Profile -->
+        <div class="profile">
+            <img src="assets/download (2).jpg" alt="Profile Image">
+            <span class="name">Your Name</span>
+            <div class="profile-actions">
+                <i class="fas fa-cog" (click)="openSettings()"></i>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="search form-group has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text" class="form-control" placeholder="Search or start new chat">
+        </div>
+        
+        <!-- Contacts -->
+        <div *ngFor="let contact of contacts" class="contact" (click)="selectContact(contact)">
+            <img [src]="contact.img" alt="Contact Image">
+            <span class="name">{{ contact.name }}</span>
+
+
+            <div class="contact-actions">
+                <div *ngIf="contact.unseenMessages" class="unseen-notification">
+                    <span class="unseen-count">{{ contact.unseenMessages }}</span>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Window -->
+    <div class="chat-window" *ngIf="activeContact">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <img [src]="activeContact.img" alt="Contact Image">
+            <div>
+                <span>{{ activeContact.name }}</span>
+                <div *ngIf="activeContact.isTyping" class="typing-status">typing...</div>
+                <div *ngIf="!activeContact.isTyping && activeContact.onlineStatus" class="online-status">{{
+                    activeContact.onlineStatus }}</div>
+            </div>
+            <div class="chat-actions">
+                <i class="fas fa-paperclip"></i>
+                <i class="fas fa-phone" (click)="initiateCall()"></i>
+                <i class="fas fa-video" (click)="initiateVideoCall()"></i>
+                <i class="fas fa-trash" (click)="clearChat()"></i>
+                <i class="fas fa-ellipsis-v"></i>
+            </div>
+        </div>
+
+        <!-- Messages -->
+
+        <div class="messages">
+            <div *ngFor="let message of activeContact.messages" [ngClass]="message.type" class="message-wrapper">
+                <div class="message-box">
+                    <span class="message-content">
+                        {{ message.text }}
+                        <span class="message-timestamp">{{ message.timestamp }}</span>
+                        <i *ngIf="message.status === 'sent'" class="fas fa-check"></i>
+                       
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Message Input -->
+        <div class="message-input">
+            <button><i class="fas fa-smile"></i></button>
+            <button><i class="fas fa-camera"></i></button>
+            <input type="text" #messageText placeholder="Type a message..." (keyup)="onTyping()" (blur)="stopTyping()">
+            <button (click)="sendMessage(messageText.value)"><i class="fas fa-paper-plane"></i> Send</button>
+        </div>
+    </div>
+
+    <div *ngIf="!activeContact" class="no-contact-selected">
+        Select a contact to start chatting.
+    </div>
+</div>
